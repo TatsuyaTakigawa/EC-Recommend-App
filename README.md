@@ -74,5 +74,5 @@ deactivate
 
 ---
 
-### ※git/githubの初期設定はこちらから  
+#### ※git/githubの初期設定はこちらから  
 [https://git-scm.com/book/ja/v2](https://docs.github.com/ja/get-started/git-basics/set-up-git)
