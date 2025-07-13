@@ -1,0 +1,32 @@
+nav{
+    text-align: center;
+    background-color:#1d1d31;
+}
+nav ul{
+    margin: 0 ;
+    padding: 0 ;
+}
+nav li{
+    list-style: none;   /* リストに装飾を行わない　*/
+    display: inline-block;  /* 横並び表示　*/
+    width: 10%;
+    min-width: 90px;
+    text-shadow: 2px 2px 5px #C0C0C0;
+}
+/*
+nav li:not(:last-child){
+    border-right:2px solid #ddd;
+}
+*/
+nav a{
+    text-decoration: none;  /* リンクに下線などの装飾を行わない　*/
+    color: #ffffff;
+}
+nav a.current{
+    color: #ffffff;
+    border-bottom:2px solid #ffffff;
+}
+nav a:hover{
+    color:orange;
+    border-bottom:2px solid orange;
+}

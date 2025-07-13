@@ -1,0 +1,30 @@
+.container{
+    background-color:#000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item1{
+    margin: 1px;
+    flex-grow: 5;
+}
+.item2{
+    margin: 1px;
+    flex-grow: 1;
+}
+.item3{
+    margin: 1px;
+    flex-grow: 1;
+}
+.item4{
+    margin: 1px;
+    flex-grow: 1;
+}
+
+a.menu{
+    color: #ffffff;
+}
+a.menu:visited{
+    color: #ffffff;
+}

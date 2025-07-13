@@ -1,0 +1,6 @@
+# 仮想環境
+.venv312/
+
+# Pythonキャッシュ
+__pycache__/
+*.pyc
