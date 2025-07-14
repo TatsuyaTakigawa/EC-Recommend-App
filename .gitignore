@@ -4,3 +4,7 @@
 # Pythonキャッシュ
 __pycache__/
 *.pyc
+
+# 機械学習のチェックポイント・重み
+checkpoint
+weights*
