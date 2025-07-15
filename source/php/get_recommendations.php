@@ -9,11 +9,14 @@
 
     $user_id = $_SESSION['user_id'];
 
+    // $user_id = '1'; // デバッグ用に固定値を使用
+
     // Flask APIのエンドポイント
     $api_ep = 'http://127.0.0.1:8000/predict';
 
     // JSON形式のペイロード
     $payload = json_encode(['user_id' => $user_id]);
+
 
     // cURLでPOSTリクエスト送信
     $ch = curl_init($api_ep);
@@ -23,6 +26,7 @@
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
 
     $response = curl_exec($ch);
+    // echo "cURLレスポンス: " . $response; // デバッグ用
 
     curl_close($ch); // return の前に移動
 
@@ -32,5 +36,5 @@
     } else {
         $result = json_decode($response, true);
         return $result['recommendations'] ?? $result['predictions'] ?? [];
-}
+    }
 ?>
