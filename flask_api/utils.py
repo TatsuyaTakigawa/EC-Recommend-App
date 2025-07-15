@@ -7,8 +7,8 @@ import tensorflow as tf
 import tensorflow_recommenders as tfrs
 
 # CSVを読み込む
-df_user = pd.read_csv("flask_api/data/user.csv")
-df_item = pd.read_csv("flask_api/data/item.csv")
+df_user = pd.read_csv("data/user.csv")
+df_item = pd.read_csv("data/item.csv")
 
 # TensorFlow Datasetに変換
 dataset_user = tf.data.Dataset.from_tensor_slices({
