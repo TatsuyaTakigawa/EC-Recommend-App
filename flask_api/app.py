@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 import numpy as np
 
 model = RecommenderModel()
-model.load_weights('flask_api/model/weights') # 学習済みの重みの読み込み
+model.load_weights('model/weights') # 学習済みの重みの読み込み
 index = tfrs.layers.factorized_top_k.BruteForce(model.query_model)
 index.index_from_dataset(
     tf.data.Dataset.from_tensor_slices(item_vocab).batch(100).map(lambda item_id:(item_id, model.candidate_model(item_id)))
