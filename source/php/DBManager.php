@@ -1,8 +1,10 @@
 <?php
     function getDB(){
-        $pdo = new PDO('mysql:host=tutorial-db-instance.cmfa64girjtm.us-east-1.rds.amazonaws.com;dbname=sample;charset=utf8'
-            ,'tutorial_user'
-            ,'tutorial_user');
+        $pdo = new PDO(
+            'mysql:host=localhost;dbname=ec-recommend-app;charset=utf8',
+            'root',
+            ''
+        );
         return $pdo;
     }
 ?>
