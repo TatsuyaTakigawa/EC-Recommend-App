@@ -18,4 +18,4 @@ model.compile(optimizer=tf.keras.optimizers.Adagrad(0.5))
 model.fit(train_data, epochs=5,verbose=1)
 
 # モデルの保存
-model.save_weights('flask_api/model/weights', save_format='tf')
+model.save_weights('model/weights', save_format='tf')
