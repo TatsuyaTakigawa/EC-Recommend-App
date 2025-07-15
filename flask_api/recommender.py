@@ -1,7 +1,7 @@
 from utils import *
 
 # トレーニング用のCSVを読み込む
-df_data = pd.read_csv("flask_api/data/data.csv")
+df_data = pd.read_csv("data/data.csv")
 
 dataset = tf.data.Dataset.from_tensor_slices({
     "user_id": df_data["USER_ID"].astype(str).tolist(),
