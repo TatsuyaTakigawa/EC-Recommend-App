@@ -42,7 +42,7 @@ function getRecommendedProducts($userId, $limit = 4)
     try {
         $pdo = getDB();
         $placeholders = implode(',', array_fill(0, count($targetIds), '?'));
-        $sql = "SELECT id, name AS product_name, price, imgpath AS image_path FROM ec_item WHERE id IN ($placeholders)";
+        $sql = "SELECT * FROM ec_item WHERE id IN ($placeholders)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute($targetIds);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
