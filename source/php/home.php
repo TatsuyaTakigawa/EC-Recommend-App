@@ -20,7 +20,6 @@
     //DB接続
     require_once 'DBManager.php';
     $pdo = getDB();
-
     //SQLを作成する
     $sql = "select * from ec_item";
     //SQLを発行する
@@ -71,6 +70,5 @@
                 ?>
             </ul>
         </div>
-
     </body>
 </html>
