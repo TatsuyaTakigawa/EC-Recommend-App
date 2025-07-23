@@ -1,5 +1,3 @@
-
-
 create table ec_user (
 	id int(10) auto_increment primary key, 
 	name varchar(30) not null, 
@@ -11,19 +9,28 @@ create table ec_user (
 	mail varchar(30)
 );
 
-create table ec_genre (
-	id int(10) not null auto_increment primary key, 
-	name varchar(100)
+CREATE TABLE country (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
 );
 
-create table ec_item (
-	id int(10) not null auto_increment primary key, 
-	name varchar(100) not null, 
-	description varchar(500), 
-	genre int(10),
-	imgpath varchar(100) ,
-	price int(10),
-	foreign key(genre) references ec_genre(id)
+CREATE TABLE menthol_flag (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE ec_item (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    tar FLOAT,
+    nicotine FLOAT,
+    quantity INT,
+    price INT,
+    country_id INT,
+    menthol_flag_id INT,
+    image_filename VARCHAR(100),
+    FOREIGN KEY (country_id) REFERENCES country(id),
+    FOREIGN KEY (menthol_flag_id) REFERENCES menthol_flag(id)
 );
 
 create table ec_cart (
@@ -43,4 +50,3 @@ create table ec_purchase (
 	foreign key(userid) references ec_user(id),
 	foreign key(itemid) references ec_item(id)
 );
-
