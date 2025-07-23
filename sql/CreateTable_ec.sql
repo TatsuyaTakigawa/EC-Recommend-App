@@ -33,12 +33,13 @@ CREATE TABLE ec_item (
     FOREIGN KEY (menthol_flag_id) REFERENCES menthol_flag(id)
 );
 
-create table ec_cart (
-	id int(10) not null auto_increment primary key,
-	userid int(10) not null, 
-	itemid int(10) not null, 
-	foreign key(userid) references ec_user(id),
-	foreign key(itemid) references ec_item(id)
+CREATE TABLE ec_cart (
+    id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userid INT(10) NOT NULL,
+    itemid INT(10) NOT NULL,
+    quantity INT(10) NOT NULL DEFAULT 1,
+    FOREIGN KEY (userid) REFERENCES ec_user(id),
+    FOREIGN KEY (itemid) REFERENCES ec_item(id)
 );
 
 
