@@ -1,12 +1,12 @@
-create table ec_user (
-	id int(10) auto_increment primary key, 
-	name varchar(30) not null, 
-	account varchar(10) not null unique, 
-	password varchar(10) not null,
-	postcode varchar(7), 
-	address varchar(100), 
-	phone varchar(11), 
-	mail varchar(30)
+CREATE TABLE ec_user (
+    id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    account VARCHAR(30) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    postcode VARCHAR(7),
+    address VARCHAR(100),
+    phone VARCHAR(15),
+    mail VARCHAR(100)
 );
 
 CREATE TABLE country (
