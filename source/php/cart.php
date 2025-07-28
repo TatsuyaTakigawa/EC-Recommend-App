@@ -1,90 +1,77 @@
 <?php
-    require_once 'common_login.php';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Aso商店</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/menu2.css">
-    <link rel="stylesheet" href="../css/main.css">
-</head>
-<body>
-<?php
-//require_once 'menu_old.php';
-require_once 'menu.php';
-?>
-<?php
-    //DB接続
-    require_once 'DBManager.php';
-    $pdo = getDB();
+include 'header.php';
+require_once 'DBManager.php';
 
-    //カートに追加
-    if(isset($_GET['cartid'])){
-        $stmt1=$pdo->prepare("insert into ec_cart values(null,?,?)");
-        $stmt1->bindValue(1,$_SESSION['user']['id']);
-        $stmt1->bindValue(2,$_GET['cartid']);
-        $stmt1->execute();
-    }
+if (!isset($_SESSION['user'])) {
+    echo '<p>カートを表示するにはログインが必要です。</p>';
+    include 'footer.php';
+    exit;
+}
 
-    //カートの一覧を表示
-    $stmt=$pdo->prepare("select 
-                ec_cart.id as cartid,
-                ec_item.id as itemid,
-                ec_item.name,
-                ec_item.price,
-                ec_item.imgpath
-                from ec_cart 
-                inner join ec_item on ec_item.id=ec_cart.itemid 
-                where userid=?");
-    $stmt->bindValue(1,$_SESSION['user']['id']);
-    $stmt->execute();
+$userId = $_SESSION['user']['id'];
+$pdo = getDB();
 
-    //カートの一覧を表示
-/*
-    $stmt=$pdo->prepare("select 
-                ec_cart.id as cartid,
-                ec_item.id as itemid,
-                ec_item.name,
-                ec_item.price,
-                ec_item.imgpath
-                from ec_cart,ec_item
-                where ec_item.id=ec_cart.itemid 
-                and userid=?");
-    $stmt->bindValue(1,$_SESSION['user']['id']);
-    $stmt->execute();
-*/
+$stmt = $pdo->prepare("
+    SELECT ec_cart.id AS cart_id, ec_item.*, ec_cart.quantity
+    FROM ec_cart
+    JOIN ec_item ON ec_cart.itemid = ec_item.id
+    WHERE ec_cart.userid = ?
+");
+$stmt->execute([$userId]);
+$cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
-<div>
-    <h1>カート商品一覧</h1>
-    <ul>
-        <table border="1">
-        <?php
-        foreach ($stmt as $row){
-            echo '<tr>';
-            echo '<td><img class="item" src="../itemimg/',$row['imgpath'],'" /></td>';
-            echo '<td>',$row['name'],'<br>',$row['price'],'円</td>';
-            echo '<td>';
-            echo '<form action="purchase.php" method="post">';
-            echo '<input type="hidden" name="cartid" value="',$row['cartid'],'">';
-            echo '<input type="hidden" name="itemid" value="',$row['itemid'],'">';
-            echo '<input type="submit" value="購入する" />';
-            echo '</form>';
-            echo '</td>';
-            echo '</tr>';
-        }
-        ?>
+<link rel="stylesheet" href="../css/cart.css">
+<main class="cart">
+    <h1>ショッピングカート</h1>
+
+    <?php if (count($cartItems) === 0): ?>
+        <p>カートに商品はありません。</p>
+    <?php else: ?>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>商品画像</th>
+                    <th>商品名</th>
+                    <th>価格</th>
+                    <th>数量</th>
+                    <th>小計</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $total = 0;
+                foreach ($cartItems as $item):
+                    $subtotal = $item['price'] * $item['quantity'];
+                    $total += $subtotal;
+                ?>
+                <tr>
+                    <td><img src="../itemimg/<?= htmlspecialchars($item['image_filename']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" width="80"></td>
+                    <td><?= htmlspecialchars($item['name']) ?></td>
+                    <td><?= htmlspecialchars($item['price']) ?>円</td>
+                    <td><?= htmlspecialchars($item['quantity']) ?></td>
+                    <td><?= $subtotal ?>円</td>
+                    <td>
+                        <form action="cart_delete.php" method="post">
+                            <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
+                            <input type="hidden" name="redirect" value="cart.php">
+                            <button type="submit">削除</button>
+                        </form>
+
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
         </table>
-    </ul>
-</div>
 
-<div>
-    <form action="purchase2.php" method="post">
-    <input type="submit" value="全部購入する" />
-    </form>
-</div>
+        <p class="cart-total"><strong>合計金額：</strong><?= $total ?>円</p>
 
-</body>
-</html>
+        <form action="purchase_confirm.php" method="post">
+            <button type="submit">購入へ進む</button>
+        </form>
+    <?php endif; ?>
+</main>
+
+<?php include 'footer.php'; ?>

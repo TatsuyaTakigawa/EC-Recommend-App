@@ -1,9 +1,0 @@
-<?php
-    //セッション開始
-    session_start();
-    if(!isset($_SESSION['user']['account'])){
-        //ホーム画面へリダイレクト
-        header("Location:./index.php");
-        exit();
-    }
-?>

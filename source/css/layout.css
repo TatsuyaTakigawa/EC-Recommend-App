@@ -1,0 +1,22 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header-wrapper {
+  flex: 1; /* ← コンテンツ部分を伸ばす */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  padding: 2em 1em;
+  flex: 1; /* 各ページのmainに適用される場合 */
+}

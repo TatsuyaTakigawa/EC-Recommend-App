@@ -1,0 +1,163 @@
+/* ===============================
+   共通フォームスタイル
+   =============================== */
+
+form {
+  max-width: 480px;
+  margin: 0 auto 2.5em auto;
+  padding: 2em 2em 2.5em;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(75, 46, 131, 0.15);
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+
+form:hover {
+  box-shadow: 0 12px 40px rgba(75, 46, 131, 0.25);
+}
+
+form h2 {
+  text-align: center;
+  margin: 0 0 2em;
+  font-weight: 900;
+  font-size: 2rem;
+  color: #4b2e83;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 3px rgba(75, 46, 131, 0.3);
+}
+
+form label {
+  display: block;
+  font-weight: 700;
+  margin: 1.3em 0 0.6em;
+  color: #4b2e83;
+  user-select: none;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
+  width: 100%;
+  padding: 0.7em 1em;
+  font-size: 1.1rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+  background-color: #fafafa;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus {
+  border-color: #8a4fff;
+  box-shadow: 0 0 8px rgba(138, 79, 255, 0.6);
+  outline: none;
+  background-color: #fff;
+}
+
+form button {
+  margin-top: 2.5em;
+  background-color: #4b2e83;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.85em 2.2em;
+  font-size: 1.2rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+  width: 100%;
+  letter-spacing: 0.05em;
+  box-shadow: 0 6px 15px rgba(75, 46, 131, 0.3);
+  user-select: none;
+}
+
+form button:hover {
+  background-color: #6a50c2;
+  box-shadow: 0 10px 25px rgba(106, 80, 194, 0.6);
+}
+
+form button:active {
+  transform: translateY(2px);
+  box-shadow: 0 5px 12px rgba(106, 80, 194, 0.5);
+}
+
+/* ===============================
+   メッセージ・リンク
+   =============================== */
+
+.error {
+  color: #d33;
+  font-weight: 900;
+  margin-bottom: 1.2em;
+  text-align: center;
+  font-size: 1.05rem;
+  text-shadow: 0 0 2px rgba(211, 51, 51, 0.8);
+}
+
+.register-main p.notice,
+.login-main p.notice {
+  text-align: center;
+  margin-top: 3em;
+  color: #000;
+  font-weight: 700;
+}
+
+.register-main p.notice a,
+.login-main p.notice a {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.register-main p.notice a:hover,
+.login-main p.notice a:hover {
+  text-decoration: underline;
+  color: #003f88;
+}
+
+/* ===============================
+   ページ別設定
+   =============================== */
+
+/* 会員登録ページ */
+body.register main {
+  padding: 3em 1.2em;
+  background-color: #f6f5fa;
+}
+
+body.register form {
+  max-width: 620px;
+}
+
+/* ログインページ */
+body.login main {
+  padding: 2em 1.2em;
+  background-color: #fbfafc;
+}
+
+body.login form {
+  max-width: 420px;
+}
+
+/* ===============================
+   モバイル対応
+   =============================== */
+@media (max-width: 480px) {
+  form {
+    padding: 1.5em 1.5em 2em;
+  }
+
+  form h2 {
+    font-size: 1.6rem;
+  }
+
+  form button {
+    font-size: 1rem;
+    padding: 0.65em 1.5em;
+  }
+}

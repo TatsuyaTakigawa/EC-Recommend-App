@@ -1,74 +1,45 @@
 <?php
-    require_once 'common_login.php';
+include 'header.php';
+require_once 'DBManager.php';
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Aso商店</title>
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/menu2.css">
-        <link rel="stylesheet" href="../css/main.css">
-    </head>
-    <body>
+<link rel="stylesheet" href="../css/home.css">
+<main class="home">
+    <section class="home-main-visual">
+        <h1>ようこそ、紙たばこ専門ECサイトへ</h1>
+        <p>人気の紙たばこを多数取り揃えております。</p>
+    </section>
 
-<?php
-    require_once 'menu.php';
-?>
-<?php
-    //DB接続
-    require_once 'DBManager.php';
-    $pdo = getDB();
-    //SQLを作成する
-    $sql = "select * from ec_item";
-    //SQLを発行する
-    $stmt = $pdo->query($sql);
+    <section class="home-item-list">
+        <h2>商品一覧</h2>
+        <div class="home-item-list__items">
+            <?php
+            $pdo = getDB();
 
-?>
+            $stmt = $pdo->query("SELECT * FROM ec_item");
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $itemId = htmlspecialchars($row['id']);
+                $itemName = htmlspecialchars($row['name']);
+                $itemPrice = htmlspecialchars($row['price']);
+                $imageFile = htmlspecialchars($row['image_filename']);
 
-        <div id="column" class="column04">
-            <h3>商品一覧</h3>
-            <ul>
-                <?php
-                foreach ($stmt as $row){
-                    echo '<li>';
-                    //商品を表示
-                    echo '<a href="./itemdetail.php?id=',$row['id'],'">';
-                    echo '<img class="item" src="../itemimg/',$row['imgpath'],'" />';
-                    echo '<p>',$row['name'],'</p>';
-                    echo '<span>',$row['price'],'円</span>';
-                    echo '</a>';
-                    echo '';
-                    echo '</li>';
-                }
-                ?>
-            </ul>
+                echo '<div class="home-item-list__item">';
+                echo '<a href="item.php?id=' . $itemId . '">';
+                echo '<img src="../itemimg/' . $imageFile . '" alt="' . $itemName . '" class="home-item-list__item-image">';
+                echo '</a>';
+                echo '<h3 class="home-item-list__item-title">' . $itemName . '</h3>';
+                echo '<p class="home-item-list__item-price">価格：' . $itemPrice . '円</p>';
+                echo '</div>';
+            }
+            ?>
         </div>
+    </section>
 
-<?php
-    require_once 'recommend_functions.php';
-    $recommendedProducts = getRecommendedProducts((string)$_SESSION['user']['id'], 4);
-    $user_name = $_SESSION['user']['name'];
-?>
+    <?php
+    if (isset($_SESSION['user'])) {
+        include 'recommend.php'; // ログイン時のみ表示
+    }
+    ?>
+</main>
 
-        <div id="column" class="column04">
-            <h3><?php echo htmlspecialchars($user_name, ENT_QUOTES, 'UTF-8'); ?>さんへのオススメ商品</h3>
-            <ul>
-                <?php
-                foreach ($recommendedProducts as $row){
-                    echo '<li>';
-                    //商品を表示
-                    echo '<a href="./itemdetail.php?id=',$row['id'],'">';
-                    echo '<img class="item" src="../itemimg/',$row['imgpath'],'" />';
-                    echo '<p>',$row['name'],'</p>';
-                    echo '<span>',$row['price'],'円</span>';
-                    echo '</a>';
-                    echo '';
-                    echo '</li>';
-                }
-                ?>
-            </ul>
-        </div>
-    </body>
-</html>
+<?php include 'footer.php'; ?>

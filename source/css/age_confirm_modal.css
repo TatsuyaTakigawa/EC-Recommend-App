@@ -1,0 +1,88 @@
+.modal {
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 3em 2.5em;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content .warning {
+  font-weight: bold;
+  color: red;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.modal-content .confirm {
+  font-size: 1.25em;
+  margin-bottom: 20px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1.2em;
+  flex-wrap: wrap;
+  margin-top: 1.8em;
+}
+
+.modal-content button {
+  background-color: #4b2e83;
+  color: #fff;
+  padding: 0.8em 2em;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  min-width: 120px;
+}
+
+.modal-content button:hover {
+  background-color: #5d3dad;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* スマホ向けレスポンシブ対応 */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 2em 1.2em;
+    max-width: 95%;
+  }
+
+  .modal-content .warning,
+  .modal-content .confirm {
+    font-size: 1.05em;
+  }
+
+  .modal-content button {
+    width: 100%;
+    padding: 1em 0;
+    font-size: 1.1rem;
+    border-radius: 20px;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    gap: 0.8em;
+  }
+}

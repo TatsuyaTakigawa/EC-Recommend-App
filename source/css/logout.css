@@ -1,0 +1,94 @@
+.logout-main {
+  max-width: 900px;
+  margin: 6em auto;
+  padding: 8em 8em 4.5em; /* 上下のpaddingを増やして縦幅確保 */
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(75, 46, 131, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  min-height: 400px; /* 高さを300→400pxにアップ */
+}
+
+
+.logout-title {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #4b2e83;
+  margin-bottom: 1.5em;
+  text-shadow: 0 1px 3px rgba(75, 46, 131, 0.3);
+}
+
+.logout-message {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 3em;
+}
+
+.logout-form {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 4em;
+}
+
+.logout-form .btn {
+  flex: 1 1 40%;
+  padding: 1em 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-radius: 14px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.btn-confirm {
+  background-color: #4b2e83;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(75, 46, 131, 0.4);
+}
+
+.btn-confirm:hover {
+  background-color: #6a50c2;
+  box-shadow: 0 10px 30px rgba(106, 80, 194, 0.7);
+}
+
+.btn-cancel {
+  background-color: #ccc;
+  color: #333;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.btn-cancel:hover {
+  background-color: #bbb;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .logout-main {
+    max-width: 90%;
+    padding: 2em 1.5em 2.5em;
+    margin: 4em auto;
+  }
+
+  .logout-title {
+    font-size: 2rem;
+  }
+
+  .logout-message {
+    font-size: 1.2rem;
+  }
+
+  .logout-form {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .logout-form .btn {
+    flex: 1 1 100%;
+    font-size: 1.1rem;
+    margin-top: 2em;
+  }
+}

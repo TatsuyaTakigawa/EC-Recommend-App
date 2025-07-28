@@ -6,7 +6,6 @@ require_once __DIR__ . '/DBManager.php';
  */
 function fetchRecommendationIds($userId)
 {
-    // (実装は前回の回答と同じ)
     $apiEndpoint = 'http://127.0.0.1:8000/predict';
     $payload = json_encode(['user_id' => $userId]);
     $ch = curl_init($apiEndpoint);

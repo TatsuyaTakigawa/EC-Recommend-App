@@ -1,0 +1,137 @@
+.item-detail {
+  max-width: 1000px;
+  margin: 2.5em auto 4em;
+  padding: 2.5em 2em;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(75, 46, 131, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.item-detail__title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 2em;
+  color: #4b2e83;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 3px rgba(75, 46, 131, 0.3);
+}
+
+.item-detail__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5em;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.item-detail__image {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+  padding: 1em;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.item-detail__image:hover {
+  box-shadow: inset 0 0 20px rgba(75, 46, 131, 0.3);
+}
+
+.item-detail__info {
+  flex: 1;
+  min-width: 280px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.item-detail__info p {
+  margin: 0.6em 0;
+}
+
+.item-detail__form {
+  margin-top: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.item-detail__form label {
+  font-weight: 700;
+  color: #4b2e83;
+  min-width: 70px;
+}
+
+.item-detail__input-quantity {
+  width: 70px;
+  padding: 0.5em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+.item-detail__input-quantity:focus {
+  border-color: #8a4fff;
+  outline: none;
+}
+
+.item-detail__btn-add-cart {
+  padding: 0.7em 1.8em;
+  background-color: #4b2e83;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  flex-shrink: 0;
+}
+
+.item-detail__btn-add-cart:hover {
+  background-color: #6a50c2;
+  box-shadow: 0 0 8px rgba(106, 80, 194, 0.7);
+}
+
+.item-detail__link {
+  display: inline-block;
+  margin-top: 1.2em;
+  color: #4b2e83;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.item-detail__link:hover {
+  color: #6a50c2;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .item-detail__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .item-detail__info {
+    text-align: center;
+  }
+
+  .item-detail__form {
+    justify-content: center;
+  }
+
+  .item-detail__btn-add-cart {
+    width: 100%;
+  }
+
+  .item-detail__input-quantity {
+    margin-top: 0.5em;
+  }
+}

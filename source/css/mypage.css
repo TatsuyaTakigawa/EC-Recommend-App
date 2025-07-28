@@ -1,0 +1,111 @@
+.mypage-main {
+  max-width: 1000px;
+  margin: 3em auto;
+  padding: 2em;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.mypage-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2em;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.5em;
+}
+
+/* 表デザイン */
+.mypage-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2em;
+}
+
+.mypage-table th,
+.mypage-table td {
+  padding: 0.75em 1em;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.mypage-table th {
+  background-color: #f5f5f5;
+  width: 30%;
+  color: #555;
+  font-weight: 600;
+}
+
+.mypage-table td {
+  color: #333;
+}
+
+/* ボタン部分 */
+.mypage-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.mypage-btn {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  padding: 0.75em 2em;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.mypage-btn:hover {
+  background-color: #555;
+}
+
+/* ===== レスポンシブ対応 ===== */
+@media screen and (max-width: 600px) {
+  .mypage-main {
+    padding: 1.5em 1em;
+  }
+
+  .mypage-table,
+  .mypage-table tbody,
+  .mypage-table tr,
+  .mypage-table th,
+  .mypage-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .mypage-table th {
+    background-color: transparent;
+    color: #888;
+    font-size: 0.9rem;
+    border-bottom: none;
+  }
+
+  .mypage-table td {
+    margin-bottom: 1em;
+    font-size: 1rem;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .mypage-table tr {
+    margin-bottom: 1.5em;
+  }
+
+  .mypage-actions {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .mypage-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
