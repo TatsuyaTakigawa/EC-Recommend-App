@@ -138,7 +138,6 @@ deactivate
 ## 👤 開発者
 
 - 名前: [滝川 達也](https://github.com/TatsuyaTakigawa),　[向井 崚大](https://github.com/mukai-bot)
-- 所属: 麻生情報ビジネス専門学校 情報工学科 AI&IoT専攻
 - 技術スタック: PHP / MySQL / Flask / HTML / CSS / JavaScript / Apache / Git / GitHub / EC2
 
 ---
