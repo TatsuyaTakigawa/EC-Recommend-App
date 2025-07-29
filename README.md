@@ -32,9 +32,9 @@ cd ec-recommend-app
 1. XAMPPをインストール  
    https://www.apachefriends.org/index.html
 
-2. `php/` フォルダを以下の場所にコピー  
+2. `source/` フォルダを以下の場所にコピー  
    ```
-   C:\xampp\htdocs\php
+   C:\xampp\htdocs\source
    ```
 
 3. XAMPPコントロールパネルから Apache & MySQL を起動
