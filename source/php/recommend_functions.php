@@ -6,7 +6,7 @@ require_once __DIR__ . '/DBManager.php';
  */
 function fetchRecommendationIds($userId)
 {
-    $apiEndpoint = 'http://ec2-44-201-92-162.compute-1.amazonaws.com:8000/predict';
+    $apiEndpoint = 'http://ec2-3-239-0-30.compute-1.amazonaws.com:8000/predict';
     $payload = json_encode(['user_id' => $userId]);
     $ch = curl_init($apiEndpoint);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
