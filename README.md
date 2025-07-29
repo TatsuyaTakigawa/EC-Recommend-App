@@ -137,6 +137,6 @@ deactivate
 ## 👤 開発者
 
 - 名前: [TatsuyaTakigawa](https://github.com/TatsuyaTakigawa),　[mukai-bot](https://github.com/mukai-bot)
-- 技術スタック: PHP / MySQL / Flask / HTML / CSS / JavaScript / Apache / Git / GitHub / EC2
+- 技術スタック: HTML / CSS / JavaScript / PHP / Flask / MySQL/ Apache / Git / GitHub / EC2 / RDS
 
 ---
