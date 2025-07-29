@@ -139,3 +139,5 @@ deactivate
 
 - 名前: [滝川 達也](https://github.com/TatsuyaTakigawa),　[向井 崚大](https://github.com/mukai-bot)
 - 技術スタック: PHP / MySQL / Flask / HTML / CSS / JavaScript / Apache / Git / GitHub / EC2
+
+---
