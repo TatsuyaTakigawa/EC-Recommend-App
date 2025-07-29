@@ -139,14 +139,3 @@ deactivate
 
 - 名前: [滝川 達也](https://github.com/TatsuyaTakigawa),　[向井 崚大](https://github.com/mukai-bot)
 - 技術スタック: PHP / MySQL / Flask / HTML / CSS / JavaScript / Apache / Git / GitHub / EC2
-
----
-
-## ✨ 開発チーム向けメモ
-
-- GitHubはコード共有に使用（`main`ブランチのみを使用）
-
----
-
-#### ※git/githubの初期設定はこちらから  
-[https://git-scm.com/book/ja/v2](https://docs.github.com/ja/get-started/git-basics/set-up-git)
