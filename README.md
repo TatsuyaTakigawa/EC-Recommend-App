@@ -67,6 +67,81 @@ deactivate
 ```
 
 ---
+---
+
+## 🔧 機能一覧
+
+| 機能         | 説明 |
+|--------------|------|
+| トップページ | 商品の一覧表示（ログイン不要） |
+| 商品詳細     | 各商品の個別ページ |
+| カート       | 商品追加・削除・合計金額計算 |
+| 購入         | 購入処理（ログインが必要） |
+| ログイン/登録 | ユーザー認証・登録フォーム |
+| レコメンド   | ログイン時のみ表示されるおすすめ商品（Flask API使用） |
+| 年齢確認     | 初回アクセス時に年齢確認ポップアップを表示 |
+
+---
+
+## 🖥️ 各ページの画面
+
+### 年齢確認モーダル
+![age_confirm](./screenshots/age_confirm.png)
+
+### トップページ（未ログイン）
+![home_no_login](./screenshots/home_no_login.png)
+
+### トップページ（ログイン済）
+![home_login](./screenshots/home_login.png)
+
+### 商品詳細ページ
+![item](./screenshots/item.png)
+
+### カートページ
+![cart](./screenshots/cart.png)
+
+### 購入履歴ページ
+![purchase_history](./screenshots/purchase_history.png)
+
+### マイページ
+![mypage](./screenshots/mypage.png)
+
+### ログインページ
+![login](./screenshots/login.png)
+
+### 会員登録ページ
+![register](./screenshots/register.png)
+
+### 会員情報の編集ページ
+![edit_user](./screenshots/edit_user.png)
+
+### トップページ（レスポンシブ対応）
+![home_responsive](./screenshots/home_responsive.png)
+
+---
+
+## 📽️ デモ動画
+
+- [ECサイト操作デモ](https://drive.google.com/file/d/1UhAUpzvR4OY_B1sPqj3X9gmZSC2Ah4AB/view?usp=sharing)
+
+---
+
+## 💡 備考
+
+- レコメンド機能はログインユーザー限定で表示されます。
+- レスポンシブ対応。
+- CSSはすべて別ファイルで設計し、ページごとに管理。
+- GitHubには開発チームで共有・管理。
+
+---
+
+## 👤 開発者
+
+- 名前: [滝川 達也](https://github.com/TatsuyaTakigawa),　[向井 崚大](https://github.com/mukai-bot)
+- 所属: 麻生情報ビジネス専門学校 情報工学科 AI&IoT専攻
+- 技術スタック: PHP / MySQL / Flask / HTML / CSS / JavaScript / Apache / Git / GitHub / EC2
+
+---
 
 ## ✨ 開発チーム向けメモ
 
